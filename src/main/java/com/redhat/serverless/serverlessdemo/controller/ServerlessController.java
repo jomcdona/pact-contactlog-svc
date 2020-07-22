@@ -31,7 +31,7 @@ public class ServerlessController {
            String[] contactlist = contactentry.split(",");
            contactdm ct = new contactdm();
            ct.setMmid1(Integer.parseInt(contactlist[0] + "1"));
-           ct.setMmid2(Integer.parseInt(contactlist[1]));
+           ct.setMmid2(Integer.parseInt(contactlist[1] + "2"));
            ct.setGpsloc(Integer.parseInt(contactlist[2]));
            ct.setCity(contactlist[3]);
            ct.setState(contactlist[4]);
