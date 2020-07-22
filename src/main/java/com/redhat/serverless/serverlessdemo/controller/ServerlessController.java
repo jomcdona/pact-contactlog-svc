@@ -20,9 +20,9 @@ public class ServerlessController {
 	//@GetMapping(value = "/producer")
         @GetMapping(path = "/test", produces = "application/json; charset=UTF-8")
         @ResponseBody
-	public String helloserverless(@RequestParam("message") String message) {
-		return "Hello " + message;
-	}
+	    public String helloserverless(@RequestParam("message") String message) {
+		    return "Hello " + message;
+    	}
         
         @PostMapping(path = "/logcontact", consumes = "application/text", produces = "application/json; charset=UTF-8")
         @ResponseBody
@@ -30,16 +30,15 @@ public class ServerlessController {
         {
            String[] contactlist = contactentry.split(",");
            contactdm ct = new contactdm();
-           ct.setmmid1(contactlist[0]);
-           ct.setmmid2(contactlist[1]);
-           ct.setgpsloc(contactlist[2]);
-           ct.setcity(contactlist[3]);
-           ct.setstate(contactlist[4]);
-           ct.setcountry(contactlist[5]);
+           ct.setMmid1(Integer.parseInt(contactlist[0]));
+           ct.setMmid2(Integer.parseInt(contactlist[1]));
+           ct.setGpsloc(Integer.parseInt(contactlist[2]));
+           ct.setCity(contactlist[3]);
+           ct.setState(contactlist[4]);
+           ct.setCountry(contactlist[5]);
            
-
            return contactentry;
-        }
+
+        }  
 
 }
-
