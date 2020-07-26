@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
 import com.redhat.serverless.serverlessdemo.model.contactdm;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.redhat.serverless.serverlessdemo.service.ContactsService;
 
 @RestController
 @RequestMapping(value = "/srv/")
@@ -28,6 +30,8 @@ public class ServerlessController {
         @ResponseBody
         public String saveContact(@RequestBody String contactentry)
         {
+           @Autowired
+           ContactsService cs;
            String[] contactlist = contactentry.split(",");
            contactdm ct = new contactdm();
            ct.setMmid1(Integer.parseInt(contactlist[0] + "1"));
@@ -36,8 +40,8 @@ public class ServerlessController {
            ct.setCity(contactlist[3]);
            ct.setState(contactlist[4]);
            ct.setCountry(contactlist[5]);
-           
-           return contactentry;
+           cs.addContact(ct);
+           return ct.toString();
 
         }  
 
