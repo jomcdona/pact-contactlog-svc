@@ -26,7 +26,7 @@ public class ServerlessController {
 		    return "Hello " + message;
     	}
         
-        @PostMapping(path = "/logcontact", consumes = "application/text", produces = "application/json; charset=UTF-8")
+        @PostMapping(path = "/logcontact", consumes = "text/plain", produces = "text/plain; charset=UTF-8")
         @ResponseBody
         public String saveContact(@RequestBody String contactentry)
         {
