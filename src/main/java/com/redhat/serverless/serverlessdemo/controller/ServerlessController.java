@@ -30,8 +30,8 @@ public class ServerlessController {
         @ResponseBody
         public String saveContact(@RequestBody String contactentry)
         {
-           @Autowired
-           ContactsService cs;
+           //@Autowired
+           ContactsService cs = new ContactsService();
            String[] contactlist = contactentry.split(",");
            contactdm ct = new contactdm();
            ct.setMmid1(Integer.parseInt(contactlist[0] + "1"));
