@@ -27,7 +27,7 @@ public class contactdm
   }
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = 'contact_gen')
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "contact_gen")
   @SequenceGenerator(name="contact_gen", sequenceName = "contactseq")
   private Integer id;
 
