@@ -1,6 +1,6 @@
 package com.redhat.serverless.serverlessdemo.model;
 
-import lombok.Data;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -9,7 +9,6 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 
 @Entity // This tells Hibernate to make a table out of this class
-@Data // Lombok: adds getters and setters
 @Table(name = "contactlst")
 public class contactdm
 {

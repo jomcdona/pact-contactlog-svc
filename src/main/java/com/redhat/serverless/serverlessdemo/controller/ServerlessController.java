@@ -1,6 +1,5 @@
 package com.redhat.serverless.serverlessdemo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
-import com.redhat.serverless.serverlessdemo.model.contactdm;
 import org.springframework.beans.factory.annotation.Autowired;
+import com.redhat.serverless.serverlessdemo.model.contactdm;
 import com.redhat.serverless.serverlessdemo.service.ContactsService;
 
 @RestController
@@ -17,7 +16,9 @@ import com.redhat.serverless.serverlessdemo.service.ContactsService;
 public class ServerlessController {
 
 	//@Autowired
-	//Producer kafkaSender;
+    //Producer kafkaSender;
+    @Autowired
+    ContactsService cs;
 
 	//@GetMapping(value = "/producer")
         @GetMapping(path = "/test", produces = "application/json; charset=UTF-8")
@@ -30,8 +31,7 @@ public class ServerlessController {
         @ResponseBody
         public String saveContact(@RequestBody String contactentry)
         {
-           //@Autowired
-           ContactsService cs = new ContactsService();
+
            String[] contactlist = contactentry.split(",");
            contactdm ct = new contactdm();
            ct.setMmid1(Integer.parseInt(contactlist[0] + "1"));
