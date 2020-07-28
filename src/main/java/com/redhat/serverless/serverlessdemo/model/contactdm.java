@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Column;
 
@@ -26,7 +27,8 @@ public class contactdm
   }
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = 'contact_gen')
+  @SequenceGenerator(name="contact_gen", sequenceName = "contactseq")
   private Integer id;
 
   @Column(name = "mmid1")
