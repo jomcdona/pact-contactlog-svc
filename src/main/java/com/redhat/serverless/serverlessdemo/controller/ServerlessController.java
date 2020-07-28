@@ -41,7 +41,7 @@ public class ServerlessController {
            ct.setState(contactlist[4]);
            ct.setCountry(contactlist[5]);
            cs.addContact(ct);
-           return ct.toString();
+           return ct.getCity();
 
         }  
 
