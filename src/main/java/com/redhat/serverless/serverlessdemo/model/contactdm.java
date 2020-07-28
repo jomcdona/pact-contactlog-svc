@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 
 @Entity // This tells Hibernate to make a table out of this class
-@Table(name = "contactlst")
+@Table(name = "contactlist")
 public class contactdm
 {
   public contactdm(int mmid1, int mmid2, int gpsloc, String city, String state, String country) {
