@@ -5,5 +5,8 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface ContactRepository extends CrudRepository<contactdm, Long>
 {
+    public static void ContactRepository() {
+
+    }
 }
 
