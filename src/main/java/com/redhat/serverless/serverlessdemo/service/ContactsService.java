@@ -24,5 +24,10 @@ public class ContactsService {
     {
         return contactsrepo.findContactByState(state);
     }
+
+    public List<contactdm> findContactByCountry(String country)
+    {
+        return contactsrepo.findContactByCountry(country);
+    }
     
 }

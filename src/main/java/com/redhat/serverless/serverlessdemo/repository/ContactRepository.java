@@ -12,6 +12,7 @@ public interface ContactRepository extends CrudRepository<contactdm, Long>
 {
     
     public List<contactdm> findContactByState(String state);
+    public List<contactdm> findContactByCountry(String country);
         
 }
 

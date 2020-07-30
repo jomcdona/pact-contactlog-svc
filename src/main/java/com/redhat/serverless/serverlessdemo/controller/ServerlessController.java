@@ -55,4 +55,11 @@ public class ServerlessController {
             return cs.findContactByState(state);
         }
 
+        @GetMapping(path = "/findbycountry", consumes = "text/plain", produces = "application/json; charset=UTF-8")
+        @ResponseBody
+        public List<contactdm>findByCountry(@RequestParam("country") String country)
+        {
+            return cs.findContactByCountry(country);
+        }
+
 }
