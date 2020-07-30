@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 public interface ContactRepository extends CrudRepository<contactdm, Long>
 {
     
+    //Interface for finding contact events by state
     public List<contactdm> findContactByState(String state);
+    //Interface for finding contact events by country
     public List<contactdm> findContactByCountry(String country);
         
 }
