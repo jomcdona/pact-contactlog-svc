@@ -48,7 +48,7 @@ public class ServerlessController {
 
         }
 
-        @GetMapping(path = "/findbystate/{state}", consumes = "text/plain", produces = "application/json; charset=UTF-8")
+        @GetMapping(path = "/findbystate", consumes = "text/plain", produces = "application/json; charset=UTF-8")
         @ResponseBody
         public List<contactdm>findByState(@RequestParam("state") String state)
         {
