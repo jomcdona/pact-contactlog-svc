@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
 import com.redhat.serverless.serverlessdemo.model.contactdm;
 import com.redhat.serverless.serverlessdemo.service.ContactsService;
 
@@ -43,6 +46,13 @@ public class ServerlessController {
            cs.addContact(ct);
            return ct.getCity();
 
-        }  
+        }
+
+        @GetMapping(path = "/findbystate/{state}", consumes = "text/plain", produces = "application/json; charset=UTF-8")
+        @ResponseBody
+        public List<contactdm>findByState(@RequestParam("state") String state)
+        {
+            return cs.findContactByState(state);
+        }
 
 }
