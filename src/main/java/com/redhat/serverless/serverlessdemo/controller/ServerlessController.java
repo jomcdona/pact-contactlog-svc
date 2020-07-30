@@ -15,7 +15,7 @@ import com.redhat.serverless.serverlessdemo.model.contactdm;
 import com.redhat.serverless.serverlessdemo.service.ContactsService;
 
 @RestController
-@RequestMapping(value = "/srv/")
+@RequestMapping(value = "/pact/")
 public class ServerlessController {
 
 	//@Autowired
@@ -48,14 +48,14 @@ public class ServerlessController {
 
         }
 
-        @GetMapping(path = "/findbystate", consumes = "text/plain", produces = "application/json; charset=UTF-8")
+        @GetMapping(path = "/findcontactbystate", consumes = "text/plain", produces = "application/json; charset=UTF-8")
         @ResponseBody
         public List<contactdm>findByState(@RequestParam("state") String state)
         {
             return cs.findContactByState(state);
         }
 
-        @GetMapping(path = "/findbycountry", consumes = "text/plain", produces = "application/json; charset=UTF-8")
+        @GetMapping(path = "/findcontactbycountry", consumes = "text/plain", produces = "application/json; charset=UTF-8")
         @ResponseBody
         public List<contactdm>findByCountry(@RequestParam("country") String country)
         {
