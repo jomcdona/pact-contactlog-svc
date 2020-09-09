@@ -15,7 +15,7 @@ import com.redhat.serverless.serverlessdemo.model.contactdm;
 import com.redhat.serverless.serverlessdemo.service.ContactsService;
 
 @RestController
-@RequestMapping(value = "/pact/")
+//@RequestMapping(value = "/pact/")
 public class ServerlessController {
 
 	//@Autowired
