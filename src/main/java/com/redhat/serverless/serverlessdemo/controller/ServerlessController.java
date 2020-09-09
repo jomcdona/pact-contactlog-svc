@@ -23,11 +23,11 @@ public class ServerlessController {
     @Autowired
     ContactsService cs;
 
-    @GetMapping(path = "/", produces = "text/plain; charset=UTF-8")
+    @PostMapping(path = "/", produces = "text/plain; charset=UTF-8")
     @ResponseBody
-    public String rootCall()
+    public String rootCall(@RequestBody String contactentry)
     {
-        System.out.println("The Kafka Event Source Hit Here");
+        System.out.println("The Kafka Event Source Hit Here with " + contactentry);
         return "The Kafka Event Source Was here";
     }
 
