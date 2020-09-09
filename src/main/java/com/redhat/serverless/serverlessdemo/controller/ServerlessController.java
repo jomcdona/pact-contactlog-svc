@@ -27,6 +27,7 @@ public class ServerlessController {
     @ResponseBody
     public String rootCall()
     {
+        System.out.println("The Kafka Event Source Hit Here");
         return "The Kafka Event Source Was here";
     }
 
