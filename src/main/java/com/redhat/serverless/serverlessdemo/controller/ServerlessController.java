@@ -23,43 +23,49 @@ public class ServerlessController {
     @Autowired
     ContactsService cs;
 
-	//@GetMapping(value = "/producer")
-        @GetMapping(path = "/test", produces = "application/json; charset=UTF-8")
-        @ResponseBody
-	    public String helloserverless(@RequestParam("message") String message) {
-		    return "Hello " + message;
-    	}
-        
-        @PostMapping(path = "/logcontact", consumes = "text/plain", produces = "text/plain; charset=UTF-8")
-        @ResponseBody
-        public String saveContact(@RequestBody String contactentry)
-        {
+    @GetMapping(path = "/", produces = "text/plain; charset=UTF-8")
+    @ResponseBody
+    public String rootCall()
+    {
+        return "The Kafka Event Source Was here";
+    }
 
-           String[] contactlist = contactentry.split(",");
-           contactdm ct = new contactdm();
-           ct.setMmid1(Integer.parseInt(contactlist[0] + "1"));
-           ct.setMmid2(Integer.parseInt(contactlist[1] + "2"));
-           ct.setGpsloc(Integer.parseInt(contactlist[2]));
-           ct.setCity(contactlist[3]);
-           ct.setState(contactlist[4]);
-           ct.setCountry(contactlist[5]);
-           cs.addContact(ct);
-           return ct.getCity();
+    @GetMapping(path = "/test", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public String helloserverless(@RequestParam("message") String message) {
+        return "Hello " + message;
+    }
+    
+    @PostMapping(path = "/logcontact", consumes = "text/plain", produces = "text/plain; charset=UTF-8")
+    @ResponseBody
+    public String saveContact(@RequestBody String contactentry)
+    {
 
-        }
+        String[] contactlist = contactentry.split(",");
+        contactdm ct = new contactdm();
+        ct.setMmid1(Integer.parseInt(contactlist[0] + "1"));
+        ct.setMmid2(Integer.parseInt(contactlist[1] + "2"));
+        ct.setGpsloc(Integer.parseInt(contactlist[2]));
+        ct.setCity(contactlist[3]);
+        ct.setState(contactlist[4]);
+        ct.setCountry(contactlist[5]);
+        cs.addContact(ct);
+        return ct.getCity();
 
-        @GetMapping(path = "/findcontactbystate", consumes = "text/plain", produces = "application/json; charset=UTF-8")
-        @ResponseBody
-        public List<contactdm>findByState(@RequestParam("state") String state)
-        {
-            return cs.findContactByState(state);
-        }
+    }
 
-        @GetMapping(path = "/findcontactbycountry", consumes = "text/plain", produces = "application/json; charset=UTF-8")
-        @ResponseBody
-        public List<contactdm>findByCountry(@RequestParam("country") String country)
-        {
-            return cs.findContactByCountry(country);
-        }
+    @GetMapping(path = "/findcontactbystate", consumes = "text/plain", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public List<contactdm>findByState(@RequestParam("state") String state)
+    {
+        return cs.findContactByState(state);
+    }
+
+    @GetMapping(path = "/findcontactbycountry", consumes = "text/plain", produces = "application/json; charset=UTF-8")
+    @ResponseBody
+    public List<contactdm>findByCountry(@RequestParam("country") String country)
+    {
+        return cs.findContactByCountry(country);
+    }
 
 }
