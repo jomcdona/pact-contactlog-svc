@@ -24,11 +24,10 @@ public class ServerlessController {
     ContactsService cs;
 
     @PostMapping(path = "/", produces = "text/plain; charset=UTF-8")
-    @ResponseBody
-    public String rootCall(@RequestBody String contactentry)
+    public void rootCall(@RequestBody String contactentry)
     {
         System.out.println("The Kafka Event Source Hit Here with " + contactentry);
-        return "The Kafka Event Source Was here";
+        saveContact(contactentry);
     }
 
     @GetMapping(path = "/test", produces = "application/json; charset=UTF-8")
