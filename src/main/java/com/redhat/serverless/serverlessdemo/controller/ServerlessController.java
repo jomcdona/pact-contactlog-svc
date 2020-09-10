@@ -2,7 +2,6 @@ package com.redhat.serverless.serverlessdemo.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,8 +17,6 @@ import com.redhat.serverless.serverlessdemo.service.ContactsService;
 //@RequestMapping(value = "/pact/")
 public class ServerlessController {
 
-	//@Autowired
-    //Producer kafkaSender;
     @Autowired
     ContactsService cs;
 

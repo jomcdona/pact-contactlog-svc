@@ -1,6 +1,5 @@
 package com.redhat.serverless.serverlessdemo.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.redhat.serverless.serverlessdemo.model.contactdm;
