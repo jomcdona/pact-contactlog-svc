@@ -14,7 +14,6 @@ import com.redhat.serverless.serverlessdemo.model.contactdm;
 import com.redhat.serverless.serverlessdemo.service.ContactsService;
 
 @RestController
-//@RequestMapping(value = "/pact/")
 public class ServerlessController {
 
     @Autowired
@@ -23,15 +22,9 @@ public class ServerlessController {
     @PostMapping(path = "/", produces = "text/plain; charset=UTF-8")
     public void rootCall(@RequestBody String contactentry)
     {
-        System.out.println("The Kafka Event Source Hit Here with " + contactentry);
         saveContact(contactentry);
     }
 
-    @GetMapping(path = "/test", produces = "application/json; charset=UTF-8")
-    @ResponseBody
-    public String helloserverless(@RequestParam("message") String message) {
-        return "Hello " + message;
-    }
     
     @PostMapping(path = "/logcontact", consumes = "text/plain", produces = "text/plain; charset=UTF-8")
     @ResponseBody
@@ -49,20 +42,6 @@ public class ServerlessController {
         cs.addContact(ct);
         return ct.getCity();
 
-    }
-
-    @GetMapping(path = "/findcontactbystate", consumes = "text/plain", produces = "application/json; charset=UTF-8")
-    @ResponseBody
-    public List<contactdm>findByState(@RequestParam("state") String state)
-    {
-        return cs.findContactByState(state);
-    }
-
-    @GetMapping(path = "/findcontactbycountry", consumes = "text/plain", produces = "application/json; charset=UTF-8")
-    @ResponseBody
-    public List<contactdm>findByCountry(@RequestParam("country") String country)
-    {
-        return cs.findContactByCountry(country);
     }
 
 }

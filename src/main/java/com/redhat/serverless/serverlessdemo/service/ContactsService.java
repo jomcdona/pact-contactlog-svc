@@ -19,15 +19,5 @@ public class ContactsService {
     {
         contactsrepo.save(contact);
     }
-
-    public List<contactdm> findContactByState(String state)
-    {
-        return contactsrepo.findContactByState(state);
-    }
-
-    public List<contactdm> findContactByCountry(String country)
-    {
-        return contactsrepo.findContactByCountry(country);
-    }
     
 }
