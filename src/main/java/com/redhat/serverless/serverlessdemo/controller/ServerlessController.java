@@ -1,14 +1,12 @@
 package com.redhat.serverless.serverlessdemo.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
+
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
 
 import com.redhat.serverless.serverlessdemo.model.contactdm;
 import com.redhat.serverless.serverlessdemo.service.ContactsService;
@@ -33,12 +31,13 @@ public class ServerlessController {
 
         String[] contactlist = contactentry.split(",");
         contactdm ct = new contactdm();
-        ct.setMmid1(Integer.parseInt(contactlist[0] + "1"));
-        ct.setMmid2(Integer.parseInt(contactlist[1] + "2"));
-        ct.setGpsloc(Integer.parseInt(contactlist[2]));
+        ct.setMmid1(Integer.parseInt(contactlist[0]));
+        ct.setMmid2(Integer.parseInt(contactlist[1]));
+        ct.setStreet(contactlist[2]);
         ct.setCity(contactlist[3]);
         ct.setState(contactlist[4]);
-        ct.setCountry(contactlist[5]);
+        ct.setZipcode(contactlist[5]);
+        ct.setCountry(contactlist[6]);
         cs.addContact(ct);
         return ct.getCity();
 

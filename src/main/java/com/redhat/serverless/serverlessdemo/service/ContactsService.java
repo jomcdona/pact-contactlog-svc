@@ -2,7 +2,6 @@ package com.redhat.serverless.serverlessdemo.service;
 
 import com.redhat.serverless.serverlessdemo.repository.ContactRepository;
 
-import java.util.List;
 
 import com.redhat.serverless.serverlessdemo.model.contactdm;
 

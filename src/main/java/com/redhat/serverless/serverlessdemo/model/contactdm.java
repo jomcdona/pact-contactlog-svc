@@ -13,12 +13,13 @@ import javax.persistence.Column;
 @Table(name = "contactlist")
 public class contactdm
 {
-  public contactdm(int mmid1, int mmid2, int gpsloc, String city, String state, String country) {
+  public contactdm(int mmid1, int mmid2, String street, String city, String state, String zipcode, String country) {
       this.mmid1 = mmid1;
       this.mmid2 = mmid2;
-      this.gpsloc = gpsloc;
+      this.street = street;
       this.city = city;
       this.state = state;
+      this.zipcode = zipcode;
       this.country = country;
   }
 
@@ -35,12 +36,14 @@ public class contactdm
   private int mmid1;
   @Column(name = "mmid2")
   private int mmid2;
-  @Column(name = "gpsloc")
-  private int gpsloc;
+  @Column(name = "street")
+  private String street;
   @Column(name = "city")
   private String city;
   @Column(name = "state")
   private String state;
+  @Column(name = "zipcode")
+  private String zipcode;
   @Column(name = "country")
   private String country;
 
@@ -70,20 +73,6 @@ public class contactdm
    */
   public void setMmid2(int mmid2) {
       this.mmid2 = mmid2;
-  }
-
-  /**
-   * @return the gpsloc
-   */
-  public int getGpsloc() {
-      return gpsloc;
-  }
-
-  /**
-   * @param gpsloc the gpsloc to set
-   */
-  public void setGpsloc(int gpsloc) {
-      this.gpsloc = gpsloc;
   }
 
   /**
@@ -136,5 +125,21 @@ public class contactdm
   /**
    * @param mmid1
    */
+
+  public String getStreet() {
+      return street;
+  }
+
+  public void setStreet(String street) {
+      this.street = street;
+  }
+
+  public String getZipcode() {
+      return zipcode;
+  }
+
+  public void setZipcode(String zipcode) {
+      this.zipcode = zipcode;
+  }
   
 }
